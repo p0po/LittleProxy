@@ -155,8 +155,7 @@ public interface ActivityTracker {
     /**
      * 发生异常的时候，定制内容给客户端
      * @param cause
-     * @param response
      */
-    void exceptionCaught(Throwable cause,HttpResponse response);
+    HttpResponse exceptionCaught(Throwable cause);
 
 }

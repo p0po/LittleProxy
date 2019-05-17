@@ -389,6 +389,11 @@ public abstract class AbstractProxyTest {
                     }
 
                     @Override
+                    public io.netty.handler.codec.http.HttpResponse exceptionCaught(Throwable cause) {
+                        return null;
+                    }
+
+                    @Override
                     public void clientConnected(InetSocketAddress clientAddress) {
                         clientConnects.incrementAndGet();
                     }

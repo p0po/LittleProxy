@@ -742,16 +742,18 @@ public class ClientToProxyConnection extends ProxyConnection<HttpRequest> {
                 HttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST, Unpooled.wrappedBuffer(cause.getMessage().getBytes()));
 
                 response.headers().set("Content-Type", "text/plain");
-                response.headers().set("Content-Length", ((DefaultFullHttpResponse)response).content().readableBytes());
+                response.headers().set("Content-Length", ((DefaultFullHttpResponse) response).content().readableBytes());
 
                 for (ActivityTracker tracker : proxyServer
                         .getActivityTrackers()) {
-                    tracker.exceptionCaught(cause,response);
+                    HttpResponse tempResponse = tracker.exceptionCaught(cause);
+                    if(tempResponse != null){
+                        response = tempResponse;
+                    }
                 }
 
                 writeHttp(response);
-
-                LOG.error("Caught an exception on ClientToProxyConnection", cause);
+                //LOG.error("Caught an exception on ClientToProxyConnection", cause);
             }
         } finally {
             // always disconnect the client when an exception occurs on the channel

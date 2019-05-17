@@ -53,6 +53,11 @@ public class ActivityTrackerAdapter implements ActivityTracker {
     }
 
     @Override
+    public HttpResponse exceptionCaught(Throwable cause) {
+        return null;
+    }
+
+    @Override
     public void clientConnected(InetSocketAddress clientAddress) {
     }
 
