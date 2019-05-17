@@ -152,4 +152,11 @@ public interface ActivityTracker {
     void responseSentToClient(FlowContext flowContext,
             HttpResponse httpResponse);
 
+    /**
+     * 发生异常的时候，定制内容给客户端
+     * @param cause
+     * @param response
+     */
+    void exceptionCaught(Throwable cause,HttpResponse response);
+
 }
