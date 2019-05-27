@@ -54,17 +54,7 @@
     </scm>
 
     <distributionManagement>
-        <repository>
-            <id>fengjr</id>
-            <name>fengjr-group</name>
-            <url>http://mvn.fengjr.inc:8081/nexus/content/repositories/releases/</url>
-        </repository>
         <snapshotRepository>
-            <id>fengjr</id>
-            <name>fengjr-group</name>
-            <url>http://mvn.fengjr.inc:8081/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <!--<snapshotRepository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
@@ -72,7 +62,7 @@
         <repository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>-->
+        </repository>
     </distributionManagement>
 
     <inceptionYear>2009</inceptionYear>
